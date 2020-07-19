@@ -1,0 +1,32 @@
+# CONSTRUIR DOCK IMAGE
+
+> docker build -t dev-one .
+
+# EXEMPLOS DE USO
+
+Abrir o terminal e iniciar
+> docker run -p 9000:9000 -p 80:80 -it --name ola ondrej /bin/bash && /iniciar.sh
+
+Iniciar mapeando diretórios do "/etc/nginx/sites-available/" e "/var/www/"
+> docker run -it --name dev-one -p 80:80 -v $PWD/nginx/sites-available:/etc/nginx/sites-available -v $PWD/www:/var/www dev-one 
+
+Para entrar dentro de um container em execução.
+> docker exec -ti ola /bin/bash
+
+# DOCKER SHEET
+
+> docker system prune -a
+> docker ps -a
+
+> docker volume ls
+> docker volume prune
+
+> docker network ls
+> docker netowrk prune
+
+> docker image ls
+> docker image rm [img]
+
+> docker container ls
+> docker container rm
+> docker container run dev-one
