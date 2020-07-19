@@ -30,8 +30,9 @@ ADD ./nginx/ADD /etc/nginx
 # RUN DEBIAN_FRONTEND=noninteractive apt-get -y install newrelic-php5
 # RUN newrelic-install install # TEM Q TESTAR MAS ACHO ESSA LINHA NAO EH NECESSARIA
 
-# git
+# dev tools
 RUN apt -y install git
+RUN apt -y install zip
 
 # COMPOSER
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && php composer-setup.php && rm composer-setup.php && mv composer.phar /usr/local/bin/composer && chmod a+x /usr/local/bin/composer
@@ -41,6 +42,7 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 RUN git clone https://github.com/drush-ops/drush.git /usr/local/src/drush
 WORKDIR /usr/local/src/drush
 RUN git checkout 10.3.1
+RUN composer update
 RUN ln -s /usr/local/src/drush/drush /usr/bin/drush
 
 # drupal console

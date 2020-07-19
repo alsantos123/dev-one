@@ -1,6 +1,9 @@
-# CONSTRUIR DOCK IMAGE
+# CONSTRUIR DOCKER IMAGE
 
-> docker build -t dev-one .
+> docker build -t alsantos123/dev-one .
+
+# PUBLICAR DOCKER OMAGE
+> docker push alsantos123/dev-one:latest
 
 # EXEMPLOS DE USO
 
